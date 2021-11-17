@@ -1,0 +1,19 @@
+
+
+cat /home/ec2-user/.steampipe/config/aws.spc                                      │
+connection "Account_1" {                                                                                           │
+  plugin    = "aws"                                                                                                   │
+ profile     = "<Account_1 profile in .aws/config>"                                                                                       │
+  regions = ["us-west-2"]                                                                                             │
+}                                                                                                                     │
+                                                                                                                      │
+connection "Account_2" {                                                                                       │
+  plugin    = "aws"                                                                                                   │
+  profile     = "<Account_2 profile in .aws/config>"                                                                             │
+  regions = ["us-west-2"]                                                                                             │
+}
+
+
+
+##Note if you want to query from specific account
+select * from Account_2.aws_ec2_instance
