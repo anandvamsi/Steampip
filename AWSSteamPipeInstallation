@@ -1,0 +1,7 @@
+SteamPipe Installation 
+
+Execute on a EC2 instance.
+sudo /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/turbot/steampipe/main/install.sh)"
+steampipe -v
+steampipe plugin install aws
+
