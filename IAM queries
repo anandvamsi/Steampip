@@ -1,0 +1,39 @@
+
+#Keys older than 180 days
+select user_name,user_arn,user_creation_time from hv_logging.aws_iam_credential_report
+ where access_key_1_last_rotated <= (current_date - interval '180' day) 
+ and access_key_1_active = true
+ 
+ #Command to get Credential report
+ grep hv ~/.aws/config | awk '{print $2}' | tr -d "]" |
+ while read line ; do echo $line;aws iam generate-credential-report --profile $line ; sleep 4; aws iam generate-credential-report --profile $line; done
+
+#IAM policies not attached
+select
+  name,
+  attachment_count,
+  permissions_boundary_usage_count
+from
+  aws_iam_policy
+where
+  not is_aws_managed
+  and not is_attached
+  and permissions_boundary_usage_count = 0;
+ 
+ #IAM key being in
+ #select
+  name as group_name,
+  inline_policies
+from
+  aws_iam_group
+where 
+  inline_policies is not null;
+  
+  #IAM keys with more than 1 keys
+  select
+  user_name,
+  count (access_key_id) as access_key_count
+from
+  aws_iam_access_key
+group by
+  user_name;
