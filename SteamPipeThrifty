@@ -1,0 +1,8 @@
+git clone https://github.com/turbot/steampipe-mod-aws-thrifty.git
+cd steampipe-mod-aws-thrifty
+
+To run the Queries in the current Account
+steampipe check all
+
+#To run the specific Account
+steampipe check all --search-path hv_XX_XXXX
