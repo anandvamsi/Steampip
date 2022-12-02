@@ -1,0 +1,17 @@
+>>steampipe should be installed prior
+sudo /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/turbot/steampipe/main/install.sh)"
+
+sudo yum install git -y
+
+#clone the code
+git clone https://github.com/turbot/steampipe-mod-aws-insights.git
+cd steampipe-mod-aws-insights
+
+example screen comand 
+screen -S steampipe
+
+#Execute the command ::- execute the command in the screen
+steampipe dashboard --dashboard-listen network
+
+#By default port in 9194, make sure you open this to in the SG.
+
