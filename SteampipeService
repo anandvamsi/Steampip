@@ -7,8 +7,8 @@ Database:
   Port:               9193
   Database:           steampipe
   User:               steampipe
-  Password:           a3b1_4163_9c1e
-  Connection string:  postgres://steampipe:a3b1_4163_9c1e@localhost:9193/steampipe
+  Password:           a3b1_4163_9cXXXX
+  Connection string:  postgres://steampipe:a3b1_4_9c1e@localhost:9193/steampipe
 
 Managing the Steampipe service:
 
