@@ -1,0 +1,25 @@
+steampipe service start --show-password
+Steampipe service is already running:
+
+Database:
+
+  Host(s):            localhost, 127.0.0.1, 172.31.62.151
+  Port:               9193
+  Database:           steampipe
+  User:               steampipe
+  Password:           a3b1_4163_9c1e
+  Connection string:  postgres://steampipe:a3b1_4163_9c1e@localhost:9193/steampipe
+
+Managing the Steampipe service:
+
+  # Get status of the service
+  steampipe service status
+
+  # View database password for connecting from another machine
+  steampipe service status --show-password
+
+  # Restart the service
+  steampipe service restart
+
+  # Stop the service
+  steampipe service stop
