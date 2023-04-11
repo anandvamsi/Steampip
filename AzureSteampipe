@@ -1,0 +1,29 @@
+
+TO configure Azure;
+step1:
+#steampipe plugin install azure
+
+azure                [====================================================================] Done
+
+Installed plugin: azure@latest v0.40.1
+Documentation:    https://hub.steampipe.io/plugins/turbot/azure
+
+step2: Create a user creds in azure end.
+ .steampipe/config/azure.spc
+ 
+ connection "azure_sub_1" {
+  plugin          = "azure"
+  tenant_id       = "fXXX1f568b-XXXXXXXXXXXXX4e2XXX5a65"
+  subscription_id = "12XXX246d4XXXXXXXXXXXXXXXXXXXXXXXa2"
+  client_id       = "8fe62XXXXXXXXXXXXXXX345"
+  client_secret   = "6cXXXXXXXXXXXXXXXptt2_HaXXX"
+}
+
+
+#Compliance 
+git clone https://github.com/turbot/steampipe-mod-azure-compliance.git
+cd steampipe-mod-azure-compliance
+steampipe plugin install azuread
+steampipe check benchmark.cis_v130 --export=TestingAzure.html
+
+
