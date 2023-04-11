@@ -15,3 +15,6 @@ steampipe dashboard --dashboard-listen network
 
 #By default port in 9194, make sure you open this to in the SG.
 
+if you want with differen port no
+steampipe dashboard  dashboard-port 9495 --dashboard-listen network
+
