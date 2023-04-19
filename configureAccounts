@@ -17,3 +17,10 @@ connection "Account_2" {                                                        
 
 ##Note if you want to query from specific account
 select * from Account_2.aws_ec2_instance
+
+
+contents .aws/config
+ .aws]$ cat config
+[profile oid-dev]
+role_arn = arn:aws:iam::041XXXXXX691:role/SteampipeReadonly
+credential_source = Ec2InstanceMetadata
